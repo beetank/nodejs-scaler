@@ -28,4 +28,10 @@ const calculator = require("./calculator");
 calculator.addition(3, 4); // O/P: 7
 ```
 ### 3.3 Child Process Module
-- Child process is a node module which is used to create a sub-process within a script. (Refer folder 3.3).
+- Child process is a node module which is used to create a sub-process within a script. (Refer folder 3/3.3).
+
+### 3.4 OS Module
+- Used to get info about the system in which environment is being run. (Refer folder 3/3.4).
+
+### 3.5 Path Module
+- Used to deal with paths of files and folders. (Refer folder 3/3.5).

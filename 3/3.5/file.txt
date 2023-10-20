@@ -1,0 +1,2 @@
+Hello this is a demo file.
+It will be used to demonstrate 'Path' module of Node.js.
