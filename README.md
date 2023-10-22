@@ -59,4 +59,25 @@ $ npm init
 ```
 $ npm i figlet
 ```
-- 'figlet' is the package name
+- 'figlet' is the package 
+
+### 4.3 About .gitignore
+- A special file used in git version control.
+- It tells which files are needed to be ignored while being pushed to the repository.
+- For e.g. there is no point in uploading the 'node_modules' folder as people can download the dependencies themselves using 'package.json' file.
+
+### 4.4 Semantic Versioning
+- Versioning is mostly done in this format '^x.y.z' e.g. '^1.5.2'
+- 'x' represents major release, 'y' represents minor release and 'z' represents patches.
+- '^'(Caret) character represents that for a particular project only this major release version should be used.
+- '~'(Tilde) character represents that for a particular project only this exact major and minor release versions should be used upto some patch. e.g '~1.0.4'(means upto 1.0.4).
+
+### 4.5  Publish NPM Package
+- Create npm account and add it with
+```
+$ npm adduser
+```
+- Now to publish your package/module use
+```
+$ npm publish
+```
