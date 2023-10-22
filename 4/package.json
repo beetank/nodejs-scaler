@@ -1,0 +1,16 @@
+{
+  "name": "fig-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "etank0",
+  "license": "ISC",
+  "dependencies": {
+    "figlet": "^1.6.0",
+    "latest": "^0.2.0",
+    "lts": "^1.2.0"
+  }
+}
