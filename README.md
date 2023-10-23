@@ -81,3 +81,20 @@ $ npm adduser
 ```
 $ npm publish
 ```
+## Module 5: Express
+
+### 5.1 Introduction to Express
+- Express is a framework built for Node.js. Used for server-side development.
+- Features:
+    - Fast in the sense of development by removing boilerplate and saving time.
+    - Middlewares: For handling requests efficiently and in an organized manner.
+    - Routing: Handling urls according to requests. (GET, POST, PUT, etc.)
+    - Templates and Scalability.
+
+### 5.2 Express installation
+```
+$ npm i express
+```
+
+### 5.3 Express Usage
+- Refer 5/5.3
