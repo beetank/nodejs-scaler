@@ -2,6 +2,8 @@ const express = require("express");
 
 const app = express(); // create an app object
 
+app.use(express.json())
+
 const courses = [
     {id: 1, name: 'Javascript'},
     {id: 2, name: 'Python'},
@@ -28,6 +30,41 @@ app.get('/courses/:id', (req, res) => {
     {
         res.send(course.name);
     }
+})
+
+app.put('/courses/:id', (req, res) => {
+    let course = courses.find(course => course.id === parseInt(req.params.id));
+
+    if (!course)
+    {
+        res.status(404).send("Course not found!");
+    }
+    else
+    {
+        course.name = req.body.name;
+        res.send(course);
+    }
+})
+
+app.get('/courses', (req, res) => {
+    res.send(courses);
+}) 
+
+app.post('/courses', (req, res) => {
+    let course = {
+        id: courses.length + 1,
+        name: req.body.name
+    };
+
+    courses.push(course);
+    res.send(course);
+})
+
+app.delete('/courses/:id', (req, res) => {
+    let course = courses.find(course => course.id === parseInt(req.params.id));
+    let index = courses.indexOf(course);
+    courses.splice(index, 1);
+    res.send(course);
 })
 
 const port = process.env.PORT || 5000; // taking care of dynamic port assignment
