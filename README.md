@@ -98,3 +98,58 @@ $ npm i express
 
 ### 5.3 Express Usage
 - Refer 5/5.3 please
+
+### 5.4 Nodemon
+- Stands for 'node-mon'itor
+- Used for testing and debugging.
+- There is no need to refresh again and again after changes
+- Installation: 
+```
+$ npm -i nodemon
+```
+- Usage:
+```
+$ nodemon app.js
+```
+- Setup package.json:
+```json
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+},
+```
+```sh
+$ npm start dev
+```
+
+### 5.5 Port Environment Variable
+- Used when dynamic port generation during hosting
+- Ex:
+```js
+const port = process.env.PORT || 5000; // taking care of dynamic port assignment
+app.listen(port, () => console.log(`App listening on port ${port}`));
+```
+
+### 5.6 Route parameters &
+### 5.7 Handling Multiple Routes
+```js
+app.get('/courses/:id', (req, res) => {
+    let course = courses.find(course => course.id === parseInt(req.params.id));
+
+    if (!course)
+    {
+        res.status(404).send("Course not found!");
+    }
+    else
+    {
+        res.send(course.name);
+    }
+})
+```
+### 5.8 Postman (Tool to send post requests)
+- For sending POST requests use Postman. Download & Use.
+- P.S: ThunderClient is lighter than Postman and available on VSCode. 
+
+### 5.9 POST, PUT & DELETE HTTP methods
+- Refer 5/5.3
