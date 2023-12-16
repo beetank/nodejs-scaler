@@ -151,5 +151,26 @@ app.get('/courses/:id', (req, res) => {
 - For sending POST requests use Postman. Download & Use.
 - P.S: ThunderClient is lighter than Postman and available on VSCode. 
 
-### 5.9 POST, PUT & DELETE HTTP methods
+### 5.9 POST(CREATE), PUT(UPDATE) & DELETE(DELETE) HTTP methods
 - Refer 5/5.3
+
+## Module 6: Middlewares
+
+### 6.1 What are Middlewares?
+- Heart of Express.
+- Middlewares are the reason why Express is so popular.
+- Whenever a request is made, it won't produce a response immediately.
+- A response will be passed to multiple middlewares before producing a response.
+- They are similar to functions and one middleware transfers control to another.
+- In 5/5.3 `express.json()` is used, it's a middleware used to parse data in JSON.
+
+### 6.2 Custom Middleware
+- We can make our own middlewares.
+- `next` parameter must be used to transfer control.
+- We should store our middlewares in different files inside a 'middleware' folder.
+- Refer `5/5.3/middlewares` and `5/5.3/app.js`
+
+### 6.3 Third-Party Middlewares
+- Visit [`express.js`](https://expressjs.com/en/resources/middleware.html) website for info about middlewares.
+- We have used a simple middleware `morgan` in 5/5.3
+- It is used to generate log of requests in the console.

@@ -1,8 +1,17 @@
 const express = require("express");
+const myMiddleware = require("./middlewares/middle");
+const morgan = require("morgan");
 
 const app = express(); // create an app object
 
 app.use(express.json())
+app.use(morgan())
+app.use(myMiddleware);
+
+app.use((req, res, next) => {
+    console.log("I am the second middleware.");
+    next();
+})
 
 const courses = [
     {id: 1, name: 'Javascript'},
