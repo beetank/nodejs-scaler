@@ -6,7 +6,7 @@ fs.mkdirSync('newDir');
 
 // to check the content of a directory
 // for paths in windows use '\\' between directory separators 
-// (as '\' is reseved as escape/newline probably)
+// (as '\' is reserved as escape/newline probably)
 let data = fs.readdirSync("../3.6");
 console.log(data);
 

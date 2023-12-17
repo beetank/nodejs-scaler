@@ -174,3 +174,33 @@ app.get('/courses/:id', (req, res) => {
 - Visit [`express.js`](https://expressjs.com/en/resources/middleware.html) website for info about middlewares.
 - We have used a simple middleware `morgan` in 5/5.3
 - It is used to generate log of requests in the console.
+
+## Module 7: Asynchronous Programming
+
+### 7.1 Introduction
+- Synchronous means in sequence and Asynchronous means without sequence or maybe simultaneously.
+- Synchronous programming is not very efficient, while Asynchronous programming is.
+- As some requests may take a long time to respond it's better to run other tasks concurrently. (Non-Blocking Code)
+- Asynchronous Programming saves time but utilizes more resources.
+- JavaScript is a single threaded programming language but still capable of Asynchronous programming.
+
+### 7.2 Reading files, Synchronously & Asynchronously
+- We can read files using 'fs' module as previously mentioned.
+- `readFileSync()` for reading synchronously and `readFile()` for asynchronously.
+- Similar syntax for other file operations.
+- `readFile()` requires a callback function as used in `7/7.2`.
+
+### 7.3 Understanding Event Loop & Previous Module (7.2)
+- `Call Stack`: The call stack is used by JavaScript to keep track of multiple function calls. We use call stack for memorizing which function is running right now. [`GFG`](https://www.geeksforgeeks.org/what-is-the-call-stack-in-javascript/)
+- Non-async functions will directly execute from the call stack. (e.g. `console.log("First Line...")`)
+- Call Stack doesn't execute async functions. It sends it to `Node APIs`.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/peetank/nodejs-scaler/blob/main/images/diagram-dark.png" height="300px">
+  <img alt="Diagram1" src = "https://github.com/peetank/nodejs-scaler/blob/main/images/diagram-light.png" height = "300px" >
+</picture>
+
+- Async functions are later on loaded onto the `Call Queue` in a random order. 
+- If you run multiple times `7/7.2/syncFile.js`, you will see File2 data might appear above File1's.
+- Then the `Event Loop` makes sure that the call stack is empty and starts loading the async functions from the callback queue onto the call stack, execution happens and when the call stack is empty sends the next async function from the queue.
+- [`Verbose Explanation`](https://www.webdevolution.com/blog/Javascript-Event-Loop-Explained)
