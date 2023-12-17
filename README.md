@@ -302,4 +302,4 @@ setInterval(cb, 1000);
 ### 7.8 Microtask Queue
 - Microtask Queue has higher priority than Task Queue(Callback Queue).
 - Microtask Queue handles Promises and Task Queue handles Callbacks.
-- Promises code is executed first, then callback code.
+- Promises code is executed first, then callback code
