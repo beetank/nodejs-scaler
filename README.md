@@ -1,5 +1,5 @@
 # nodejs-scaler
-Node.js, Express.js project to learn backend development from Scaler by Mrinal Bhattacharya
+Node.js, Express.js repo to learn backend development from Scaler by Mrinal Bhattacharya
 
 ## Module 3: Node Module System
 
