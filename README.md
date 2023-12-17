@@ -196,8 +196,8 @@ app.get('/courses/:id', (req, res) => {
 - Call Stack doesn't execute async functions. It sends it to `Node APIs`.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/peetank/nodejs-scaler/blob/main/images/diagram-dark.png" height="300px">
-  <img alt="Diagram1" src = "https://github.com/peetank/nodejs-scaler/blob/main/images/diagram-light.png" height = "300px" >
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/peetank/nodejs-scaler/blob/main/images/diagram-dark.png" height="650px">
+  <img alt="Diagram1" src = "https://github.com/peetank/nodejs-scaler/blob/main/images/diagram-light.png" height = "650px" >
 </picture>
 
 - Async functions are later on loaded onto the `Call Queue` in a random order. 
