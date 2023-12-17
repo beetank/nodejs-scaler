@@ -1,6 +1,48 @@
 # nodejs-scaler
 Node.js, Express.js project to learn backend development from Scaler by Mrinal Bhattacharya
 
+## Contents
+1. [`Module 1: Introduction`](#module-1-introduction)
+2. [`Module 2: Getting Started with Node.js`](#module-2-getting-started-with-nodejs)
+3. [`Module 3: Node Module System`](#module-3-node-module-system)
+4. [`Module 4: Node Package Manager(NPM)`](#module-4-node-package-managernpm)
+5. [`Module 5: Express`](#module-5-express)
+6. [`Module 6: Middlewares`](#module-6-middlewares)
+7. [`Module 7: Asynchronous Programming`](#module-7-asynchronous-programming)
+
+## Module 1: Introduction
+- Nothing much in this module. Just the instructor introduces the course.
+
+## Module 2: Getting Started with Node.js
+
+### 2.1 Introduction to Node.js
+- Created by Ryan Dahl in 2009.
+- Node.js is open-source, cross-platform JS runtime environment for executing code outside of the browser.
+- Widely used to build back-end services for Client Side Applications, like creating APIs, building authentication systems, File Handling and communicating to the Database.
+- Used to build data-intensive, highly Scalable and real-time Web Apps.
+- Why to use Node.js?
+    - Superfast and Highly Scalable. JS everywhere.
+    - Consistent and clean codebase.
+    - Huge community support.
+    - Large ecosystem of open-source libs (NPM).
+- Features:
+    - Single-threaded, Asynchronous, Event driven, NPM, Highly Scalable.
+    - Performance (C++ and V8 Engine)
+
+### 2.2 Installation
+- Simply download and install from [`nodejs.org`](https://nodejs.org/en).
+
+### 2.3 First Program
+- A file named `test.js`.
+```js
+// console.log(window); // gives error as it doesn't exist like in browsers
+console.log(global); // it is somewhat similar to 'window' object in browsers
+```
+- Run `test.js` with
+```sh
+$ node test.js
+```
+
 ## Module 3: Node Module System
 
 ### 3.1 The global object
@@ -192,6 +234,7 @@ app.get('/courses/:id', (req, res) => {
 
 ### 7.3 Understanding Event Loop & Previous Module (7.2)
 - `Call Stack`: The call stack is used by JavaScript to keep track of multiple function calls. We use call stack for memorizing which function is running right now. [`GFG`](https://www.geeksforgeeks.org/what-is-the-call-stack-in-javascript/)
+- `Callback`: A callback is any function that is a parameter of an async function, which the async function invokes to complete its operation.
 - Non-async functions will directly execute from the call stack. (e.g. `console.log("First Line...")`)
 - Call Stack doesn't execute async functions. It sends it to `Node APIs`.
 
@@ -204,3 +247,59 @@ app.get('/courses/:id', (req, res) => {
 - If you run multiple times `7/7.2/syncFile.js`, you will see File2 data might appear above File1's.
 - Then the `Event Loop` makes sure that the call stack is empty and starts loading the async functions from the callback queue onto the call stack, execution happens and when the call stack is empty sends the next async function from the queue.
 - [`Verbose Explanation`](https://www.webdevolution.com/blog/Javascript-Event-Loop-Explained)
+
+### 7.4 Serial Execution of Async Code
+- There will be times when we need our Async code to run serially.
+- For that just nest the calls of Async functions.
+- But this might lead to `"Callback Hell"` or `"Callback Pyramid of Doom"`.
+- Refer Line 17 in `7/7.2/syncFile.js`.
+
+### 7.5 `setTimeout` & `setInterval`
+- `setTimeout()` is an async function.
+- Syntax: 
+```js 
+setTimeout(cb, 2000); 
+// cb = callback function
+// 2000 = Time in ms after which cb should be called
+// Refer 7/7.5/example1.js
+``` 
+- `setInterval()` is an async function.
+- This function defines an interval after which a function should be run.
+- Syntax:
+```js 
+setInterval(cb, 1000); 
+// cb = callback function
+// 2000 = Time in ms after which cb should be called again and again
+// above syntax will make the cb run infinitely
+```  
+- Use `clearInterval()` to make the infinite loop break. It is used with `setTimeout()` i.e. to stop the `setInterval()` after some time specified.
+- Refer `7/7.5/example2.js`.
+
+### 7.6 Promises in JavaScript
+- A promise is an assurance or guarantee that something will happen in the future.
+- In JavaScript, a Promise is an object that will produce a single value some time in the future. A promise is a placeholder for the future result of an asynchronous operation.
+- Promises help in dealing with callback hell.
+- Promises have three states:
+    - `pending`: This is the default state of a defined promise
+    - `fulfilled`:  This is the state of a successful promise (using `.then()`)
+    - `rejected`: This is the state of a failed promise (using `.catch()`)
+- Refer `7/7.6/promisesExample.js`
+
+### 7.7 Promises and Async/Await
+- We are using a 'Coffee Shop' analogy to understand.
+    - Two Promises are needed here:
+        - One for getting a token which will ultimately get us coffee.
+        - Second for the processing time of the order.
+    - When second promise is resolved we will get our coffee served.
+- Basically we are `Chaining Promises` in `7/7.7/coffeePromise.js`. But it can get tedious if there are many promises in the chain.
+- `async/await` are syntactical sugar for promises. They work the same as normal promises, but syntax is simpler or more intuitive.
+- `async` is used with functions where promises and asynchronous nature is involved.
+- `await` will wait for our "promisified" functions to complete.`await` can only be used inside `async` functions.
+- With `async/await` we can eliminate `chaining` for cleaner code.
+- To handle errors in `async/await` we use `try/catch` block.
+- Refer `7/7.7/coffeePromise.js`.
+
+### 7.8 Microtask Queue
+- Microtask Queue has higher priority than Task Queue(Callback Queue).
+- Microtask Queue handles Promises and Task Queue handles Callbacks.
+- Promises code is executed first, then callback code.

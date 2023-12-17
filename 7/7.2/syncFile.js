@@ -14,6 +14,7 @@ function callbFunc1(err, data) {
         console.log(err);
     }
     console.log("File1 Content: " + data)
+    // fs.readFile("file2.txt", callbFunc2); // for running serially (Module 7.4)
 }
 
 fs.readFile("file2.txt", callbFunc2);
