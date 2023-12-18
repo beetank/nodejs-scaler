@@ -9,7 +9,7 @@ Node.js, Express.js repo to learn backend development from Scaler by Mrinal Bhat
 5. [`Module 5: Express`](#module-5-express)
 6. [`Module 6: Middlewares`](#module-6-middlewares)
 7. [`Module 7: Asynchronous Programming`](#module-7-asynchronous-programming)
-8. [`Module 8: CRUD with MongoDB & Mongoose`](#module-8-crud-with-mongodb-mongoose)
+8. [`Module 8: CRUD with MongoDB & Mongoose`](#module-8-crud-with-mongodb--mongoose)
 
 ## Module 1: Introduction
 - Nothing much in this module. Just the instructor introduces the course.
