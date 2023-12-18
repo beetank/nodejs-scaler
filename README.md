@@ -9,6 +9,7 @@ Node.js, Express.js repo to learn backend development from Scaler by Mrinal Bhat
 5. [`Module 5: Express`](#module-5-express)
 6. [`Module 6: Middlewares`](#module-6-middlewares)
 7. [`Module 7: Asynchronous Programming`](#module-7-asynchronous-programming)
+8. [`Module 8: CRUD with MongoDB & Mongoose`](#module-8-crud-with-mongodb-mongoose)
 
 ## Module 1: Introduction
 - Nothing much in this module. Just the instructor introduces the course.
@@ -303,3 +304,32 @@ setInterval(cb, 1000);
 - Microtask Queue has higher priority than Task Queue(Callback Queue).
 - Microtask Queue handles Promises and Task Queue handles Callbacks.
 - Promises code is executed first, then callback code
+
+## Module 8: CRUD with MongoDB & Mongoose
+
+### 8.1 MongoDB and Mongoose Introduction
+-  `MongoDB` is NoSQL (Not-only SQL).
+- Install the community server edition from [`mongodb.com`](https://www.mongodb.com/try/download/community).
+- Set it up in Windows by adding path and creating storage directory etc. idk I use linux. :P
+- `Mongoose` is an API/Bridge that helps in easy communication with MongoDB.
+- Read more about [`Mongoose`](https://mongoosejs.com).
+- Installation: ```$ npm install mongoose```
+- Usage:
+```js
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://127.0.0.1:27017/testDB")
+.then(() => {
+    console.log("Connection Successful!");
+})
+.catch((err) => {
+    console.log("Couldn't connect!", err);
+})
+```
+### 8.2 Schemas and Models
+- Although MongoDB is Schema-less DBMS. Having a schema doesn't hurt.
+- So we can have best of both worlds with Mongoose schemas.
+- Refer `/mongoConnection`.
+- Refer the above mentioned file for Comparison Operators.
+
+ 
