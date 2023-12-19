@@ -10,12 +10,26 @@ mongoose.connect("mongodb://127.0.0.1:27017/testDB")
 
 // Schemas in Mongoose
 const courseSchema = new mongoose.Schema({
-    name: String,
-    creator: String,
+    name: {type: String, required: true, minlength: 5, maxlength: 200},
+    category: {
+        type: String, required: true,
+        enum: ['DSA', 'Web', 'Mobile', 'DBMS']
+    },
+    tags: {
+        type: Array,
+        validate: {
+            validator: function(tags) {
+                return tags.length > 1;
+            }
+        }
+    },
+    creator: {type: String, required: true}, 
     publishedDate: {type: Date, default: Date.now},
-    isPublished: Boolean,
-    rating: Number
+    isPublished: {type: Boolean, required: true},
+    rating: {type: Number, required: function() {return this.isPublished}}, 
+    // shorthand anonymous functions won't work on line
 })
+
 
 const Course = mongoose.model("Course", courseSchema);
 
@@ -24,17 +38,29 @@ const Course = mongoose.model("Course", courseSchema);
 async function addCourse() {
 
     const course = new Course({
-        name: "Python Tutorial",
-        creator: "Jaggu Bandar",
+        name: "Mongoose",
+        creator: "Indumati",
+        tags: ["express"],
         isPublished: true,
-        rating: 3.8
+        rating: 4.4,
+        category: 'Web'
     });
 
-    const result = await course.save();
-    console.log(result);
+    try {
+        // await course.validate();
+        const result = await course.save();
+        console.log(result);
+    }
+    catch(err) {
+        console.log("Error Occurred: " + err);
+        // verbose error checking
+        for (field in err.errors) {
+            console.log(err.errors[field]);
+        }
+    }
 }
 
-// addCourse();
+addCourse();
 
 // READ
 // Comparison Operators: $eq, $ne, $gte, $gt, $lte, $lt, $in, $nin (not-in)

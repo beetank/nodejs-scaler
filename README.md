@@ -10,6 +10,7 @@ Node.js, Express.js repo to learn backend development from Scaler by Mrinal Bhat
 6. [`Module 6: Middlewares`](#module-6-middlewares)
 7. [`Module 7: Asynchronous Programming`](#module-7-asynchronous-programming)
 8. [`Module 8: CRUD with MongoDB & Mongoose`](#module-8-crud-with-mongodb--mongoose)
+9. [`Module 9: Data Validation in MongoDB`](#module-9-data-validation-in-mongodb)
 
 ## Module 1: Introduction
 - Nothing much in this module. Just the instructor introduces the course.
@@ -332,4 +333,30 @@ mongoose.connect("mongodb://127.0.0.1:27017/testDB")
 - Refer `/mongoConnection`.
 - Refer the above mentioned file for Comparison Operators.
 
- 
+## Module 9: Data Validation in MongoDB
+
+### 9.1 Data Validation in MongoDB
+- It is very important to have required data when it is added in the database.
+- But one can submit empty or incomplete documents.
+- Hence `Data Validation` is necessary
+- We can achieve this by adding `required: true` key when specifying the schema.
+
+```js
+// Schemas in Mongoose
+const courseSchema = new mongoose.Schema({
+    name: {type: String, required: true}, 
+    // 'required: true/false' can also be used
+)};
+```
+
+### 9.2 Inbuilt Data Validators
+- We can various inbuilt data validators.
+- For String `minlength` and `maxlength`.
+- We can use `enum` to validate certain data as well.
+- We can use our functions.
+- Refer `mongoConnection/index.js`.
+
+### 9.3 Custom data Validators
+- Many times we need custom validation.
+- This can be done using `validate` and `validator` key in Schema.
+- Refer `mongoConnection/index.js`.
