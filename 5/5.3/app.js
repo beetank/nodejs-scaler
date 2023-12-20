@@ -70,6 +70,10 @@ app.post('/courses', (req, res) => {
 })
 
 app.delete('/courses/:id', (req, res) => {
+    // let courseUp = courses.filter((course) => course.id !== req.params.id);
+    // courses = courseUp;
+    // res.send(courses);
+
     let course = courses.find(course => course.id === parseInt(req.params.id));
     let index = courses.indexOf(course);
     courses.splice(index, 1);

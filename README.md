@@ -11,6 +11,7 @@ Node.js, Express.js repo to learn backend development from Scaler by Mrinal Bhat
 7. [`Module 7: Asynchronous Programming`](#module-7-asynchronous-programming)
 8. [`Module 8: CRUD with MongoDB & Mongoose`](#module-8-crud-with-mongodb--mongoose)
 9. [`Module 9: Data Validation in MongoDB`](#module-9-data-validation-in-mongodb)
+10. [`Module 10: Model Relationships by Building APIs`](#module-10-model-relationships-by-building-apis)
 
 ## Module 1: Introduction
 - Nothing much in this module. Just the instructor introduces the course.
@@ -360,3 +361,27 @@ const courseSchema = new mongoose.Schema({
 - Many times we need custom validation.
 - This can be done using `validate` and `validator` key in Schema.
 - Refer `mongoConnection/index.js`.
+
+## Module 10: Model Relationships by Building APIs
+
+- Let's apply all the concepts by building `/coursium` project.
+
+### 10.1 Initializing the Project
+- Setup
+```sh
+$ npm init --yes
+$ npm install express mongoose nodemon
+```
+### 10.2 Managing Routes
+- We need to manage routes better as having all routes in one file is hectic.
+- Hence we created `routes` folder with `categories.js` file.
+- `express.Router()` is needed to handle routes just like before.
+- Now we can use our `routes/categories.js` in `app.js`.
+
+### 10.3 Data Validation
+- We can have data validation in the HTTP method requests itself.
+- A package called `Joi` enables us to do that.
+- The instructor has used a specific version, I am doing the same but you can update yourself.
+- ```$ npm install joi@13.1.0```
+- Refer `/coursium/routes/categories.js`.
+
