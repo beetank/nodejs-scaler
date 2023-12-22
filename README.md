@@ -385,3 +385,18 @@ $ npm install express mongoose nodemon
 - ```$ npm install joi@13.1.0```
 - Refer `/coursium/routes/categories.js`.
 
+### 10.4 Integrating with the Database
+- Let's now use mongoose to connect to the DB as we did previously.
+- But this time we will update the DB according to the HTTP requests.
+
+### 10.5 Building the Students API
+- Let's create another `routes/students.js` route for our API.
+- Student schema will have more data.
+- Other thing are pretty much the same.
+- One extra thing is different validation function for PUT request.
+
+### 10.6 Organizing the App
+- A good coding practice is to follow `Single Responsibility Principle`.
+- The idea behind the SRP is that every class, module, or function in a program should have one responsibility/purpose in a program.
+- Hence we can't have 'routes' doing validation and designing schemas.
+- Create a separate folder `models` to store schemas and validators.
