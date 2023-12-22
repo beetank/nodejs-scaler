@@ -379,7 +379,7 @@ $ npm install express mongoose nodemon
 - Now we can use our `routes/categories.js` in `app.js`.
 
 ### 10.3 Data Validation
-- We can have data validation in the HTTP method requests itself.
+- We can have data validation in the HTTP method requests itself in NodeJs.
 - A package called `Joi` enables us to do that.
 - The instructor has used a specific version, I am doing the same but you can update yourself.
 - ```$ npm install joi@13.1.0```
