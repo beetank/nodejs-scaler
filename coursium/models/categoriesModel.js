@@ -17,3 +17,4 @@ function validateData(category) {
 
 exports.Category = Category;
 exports.validateData = validateData;
+exports.categorySchema = categorySchema;

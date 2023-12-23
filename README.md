@@ -400,3 +400,10 @@ $ npm install express mongoose nodemon
 - The idea behind the SRP is that every class, module, or function in a program should have one responsibility/purpose in a program.
 - Hence we can't have 'routes' doing validation and designing schemas.
 - Create a separate folder `models` to store schemas and validators.
+
+### 10.7 Building the Course API
+- Now let's build Course API.
+- We can add schema inside a schema, like we have done with `categorySchema` inside the `coursesModel` model schema.
+- Please refer to the `courses` route as well, because there are few changes made to acommodate the nested schemas.
+---
+#### (Congrats! You have now finished the course.)
